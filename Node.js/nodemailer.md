@@ -13,24 +13,52 @@ Node.js 애플리케이션에서 메일을 쉽게 보낼 수 있도록 도와주
 ```javascript
 let transporter = nodemailer.createTransport(transport[, defaults])
 ```
-<br><br>
+<br>
 
 - 메일 보내기
 ```javascript
 transporter.sendMail(data[, callback])
 ```
-<br><br>
+<br>
 
-
-### mail 구성
+### Code
 ```javascript
-var message = {
-  from: "sender@server.com",
-  to: "receiver@sender.com",
-  subject: "Message title",
-  text: "Plaintext version of the message",
-  html: "<p>HTML version of the message</p>"
-};
+const nodemailer = require('nodemailer');
+
+const smtpServerURL = "email SMTP 서버 주소"
+const authUser = "email 이메일"
+const authPass = "email 계정 비밀번호"
+const fromEmail = '보내는 사람 이메일 주소'
+
+function sendEmail(toEmail, title, txt) {    
+  let transporter = nodemailer.createTransport({
+    host: smtpServerURL,
+    secure: true, //보안 서버 사용 false로 적용시 port 옵션 추가 필요
+    auth: {
+        user: authUser, 
+        pass: authPass 
+      }
+    });
+    
+    let mailOptions = {
+      from: fromEmail, 
+      to: toEmail , 
+      subject: title, //제목
+      text: txt //본문
+    };
+
+    //전송 시작
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      }
+      //전송 완료
+        console.log("Finish sending email : " + info.response);        
+        transporter.close()
+    })
+}
+
 ```
+
 
 <br>
