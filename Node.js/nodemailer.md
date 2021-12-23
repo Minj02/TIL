@@ -1,24 +1,24 @@
 # Nodemailer
 
 ### Nodemailer?
-Node.js 애플리케이션에서 메일을 쉽게 보낼 수 있도록 도와주는 모듈 📨
-<br><br>
+Node.js 애플리케이션에서 메일을 쉽게 보낼 수 있도록 도와주는 모듈 📨     
+<br>
 
-- **nodemailer** 모듈 설치하기 <br>
-```npm i nodemailer```<br>
-```yarn add nodemailer ```<br><br>
+- **nodemailer** 모듈 설치하기  
+```npm i nodemailer```  
+```yarn add nodemailer ```    
+<br>
 
-
-- 이메일을 보낼 **transporter** 객체 생성 <br>
+- 이메일을 보낼 **transporter** 객체 생성   
 ```javascript
 let transporter = nodemailer.createTransport(transport[, defaults])
-```
+```     
 <br>
 
 - 메일 보내기
 ```javascript
 transporter.sendMail(data[, callback])
-```
+```     
 <br>
 
 ### Code
