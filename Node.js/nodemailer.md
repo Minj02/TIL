@@ -2,7 +2,7 @@
 
 ### Nodemailer?
 Node.js 애플리케이션에서 메일을 쉽게 보낼 수 있도록 도와주는 모듈 📨     
-<br>
+<br> 
 
 - **nodemailer** 모듈 설치하기  
 ```npm install nodemailer```  
